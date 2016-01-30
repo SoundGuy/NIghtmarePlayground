@@ -11,11 +11,16 @@ public class EnemyScript : MonoBehaviour {
     static public Vector2 XLimit = new Vector2(-45, 45);
     static public Vector2 YLimit = new Vector2(-45, 45);
 
+    [SerializeField]
+    private int toughness;
+    private int currentTough;
+
     public int type;
-    static public bool isFighting;
+    public bool isFighting;
 
 	void Start ()
     {
+        currentTough = toughness;
         anim = GetComponent<Animator>();
         isFighting = false;
         StartCoroutine(Walk());
@@ -73,5 +78,26 @@ public class EnemyScript : MonoBehaviour {
         return pos;
     }
 
+    public void Stop()
+    {
+        StopAllCoroutines();
+        anim.SetBool("isWalking", false);
 
+    }
+
+    public void Free() {
+        StartCoroutine(Walk());
+        isFighting = false;
+    }
+
+    public bool Hit()
+    {
+        currentTough--;
+        if (currentTough <= 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
