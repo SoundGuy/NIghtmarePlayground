@@ -18,10 +18,13 @@ public class PlayerScript : MonoBehaviour {
     RuntimeAnimatorController enemy2Controller;
     [SerializeField]
     RuntimeAnimatorController enemy3Controller;
+    [SerializeField]
+    RuntimeAnimatorController enemy4Controller;
     Animator animator;
     [SerializeField]
     public GameObject g;
     private FightHandler fightHandler;
+    private CthulliScript cthuluScript;
     Light View;
 
     public float viewThreshold;
@@ -31,6 +34,8 @@ public class PlayerScript : MonoBehaviour {
         View = GetComponentInChildren<Light>();
         fightDelay = 1;
         fightHandler = g.GetComponent<FightHandler>();
+        cthuluScript = kathulu.GetComponent<CthulliScript>();
+        
 
     }
 
@@ -89,46 +94,17 @@ public class PlayerScript : MonoBehaviour {
         if(View.range<=3.5f)
         {
             View.range = 3.5f;
+            FreakOut();
         }
         else if (View.range >= 14){
             View.range = 14;
         }
     }
-
-    /*
-    IEnumerator Fight(int type, RuntimeAnimatorController Eanim,EnemyScript enemy)
+    
+    private void FreakOut()
     {
-        Debug.Log(enemy);
-        while (Flame.GetComponent<Animator>().GetInteger("Flame level")!=3&& Flame.GetComponent<Animator>().GetInteger("Flame level") != 0)
-        {
-            RandomButtonAction();
-            yield return null;
-        }
-        Victory(enemy.GetComponent<EnemyScript>());
-    }*/
-
-    /*
-    void RandomButtonAction()
-    {
-        int buttonIndex = Random.Range(1, 3);
-        switch(buttonIndex)
-        {
-            case 1:
-                Runes.GetComponent<Animator>().SetInteger("Letter Index", buttonIndex);
-                StartCoroutine(WaitForKeyDown(KeyCode.M));
-                break;
-            case 2:
-                Runes.GetComponent<Animator>().SetInteger("Letter Index", buttonIndex);
-                StartCoroutine(WaitForKeyDown(KeyCode.P));
-                break;
-            case 3:
-                Runes.GetComponent<Animator>().SetInteger("Letter Index", buttonIndex);
-                StartCoroutine(WaitForKeyDown(KeyCode.V));
-                break;
-        }
-        
+        cthuluScript.activateCthulli();
     }
-    */
 
     public void StartBattle()
     {
@@ -136,6 +112,7 @@ public class PlayerScript : MonoBehaviour {
 
     public void Posses(EnemyScript enemy)
     {
+        Destroy(enemy.gameObject);
         View.range += 3;
         animator = GetComponent<Animator>();
         switch (enemy.type)
