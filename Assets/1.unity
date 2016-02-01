@@ -124,6 +124,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 171894, guid: e4da5ec2bf1c91944aed0ec1d7cf37b5, type: 2}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4da5ec2bf1c91944aed0ec1d7cf37b5, type: 2}
   m_IsPrefabParent: 0
@@ -140,7 +144,7 @@ GameObject:
   - 50: {fileID: 15579193}
   - 58: {fileID: 15579194}
   - 95: {fileID: 15579195}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,9 +167,9 @@ MonoBehaviour:
   kathulu: {fileID: 1920629445}
   Flame: {fileID: 2134569644}
   enemy1Controller: {fileID: 9100000, guid: 3ce92354168040c4bae0581b13a3e2e3, type: 2}
-  enemy2Controller: {fileID: 0}
-  enemy3Controller: {fileID: 0}
-  enemy4Controller: {fileID: 0}
+  enemy2Controller: {fileID: 9100000, guid: 58de18e8d0e14dc46af50ccb36d28c49, type: 2}
+  enemy3Controller: {fileID: 9100000, guid: 3ce92354168040c4bae0581b13a3e2e3, type: 2}
+  enemy4Controller: {fileID: 9100000, guid: 20d1c3b51b8e9db4194e2d21f93b8502, type: 2}
   g: {fileID: 429299958}
   viewThreshold: 0.1166667
 --- !u!212 &15579191
@@ -271,7 +275,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 429299959}
   - 114: {fileID: 429299960}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: FightHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,12 +451,13 @@ MonoBehaviour:
   - {fileID: 453080, guid: 35fd18f436d4f4d49a4b33062e284dd8, type: 2}
   - {fileID: 495318, guid: 21a2e68ca5b77284babef346f50c4e22, type: 2}
   Enemies:
-  - {fileID: 493334, guid: a26665cb62ad91a4db9e9a4741f3b92d, type: 2}
+  - {fileID: 493334, guid: 0577ce096868c4f40bb29eb5223aba30, type: 2}
   - {fileID: 445122, guid: 3c379d4a4cc323c4486d6049010d3e5b, type: 2}
   - {fileID: 415244, guid: 504c5063ec5085049bf8ef77ef5b359b, type: 2}
-  - {fileID: 445122, guid: 3c379d4a4cc323c4486d6049010d3e5b, type: 2}
+  - {fileID: 484916, guid: 55818f7df663a6042982be9e0f1c05f1, type: 2}
+  - {fileID: 493334, guid: 0577ce096868c4f40bb29eb5223aba30, type: 2}
   numOfF: 3
-  numOfE: 2
+  numOfE: 3
 --- !u!4 &1150932978
 Transform:
   m_ObjectHideFlags: 0
@@ -474,7 +479,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1473771396}
   - 108: {fileID: 1473771397}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f96646d74adf640a5cc1537091b1e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  Player: {fileID: 15579189}
   speed: 0
 --- !u!95 &1920629443
 Animator:
@@ -708,7 +713,7 @@ GameObject:
   - 4: {fileID: 2134569644}
   - 212: {fileID: 2134569646}
   - 95: {fileID: 2134569645}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Green flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}

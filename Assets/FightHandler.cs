@@ -48,8 +48,12 @@ public class FightHandler : MonoBehaviour {
         }
     }
 
+    public void cca(string title) {
+    }
+
     public void InitiateBattle(EnemyScript newEnemy, PlayerScript p)
     {
+        
         if (isFighting == false)
         {
             isFighting = true;
@@ -68,7 +72,7 @@ public class FightHandler : MonoBehaviour {
     private void StartTurn()
     {
         
-        player.Runes.GetComponent<Animator>().SetInteger("Letter Index", 0);
+        //player.Runes.GetComponent<Animator>().SetInteger("Letter Index", 0);
         /*
         if (player.Runes.GetComponent<Animator>().GetInteger("Outcome") == -1)
         {
@@ -78,11 +82,13 @@ public class FightHandler : MonoBehaviour {
         currentGuessTime = guessTime;
         int buttonNum = RandomizeButton();
         currentButton = Buttons[buttonNum];
-        DisplayButton(buttonNum);
+        Debug.Log("Current button is " + currentButton);
+        DisplayButton(currentButton.ToString());
     }
 
     public void Guess(int guessedButton)
     {
+        Debug.Log("guessed button is" + guessedButton);
         char x = Buttons[guessedButton];
         if (isFighting == true && currentGuessTime > 0)
         {
@@ -126,7 +132,7 @@ public class FightHandler : MonoBehaviour {
 
 	private int RandomizeButton(){
 		int x = Random.Range (1, 4);
-        Debug.Log(x);
+        Debug.Log("randomized button is " + x + "char: "+ Buttons[x]);
 		return x;
 	}
 
@@ -140,11 +146,6 @@ public class FightHandler : MonoBehaviour {
         ///
     }
 
-    private void DisplayButton(int button){
-        player.Runes.GetComponent<Animator>().SetInteger("Letter Index", button);
-        ///
-    }
-
     public void FailBattle(){
         isFighting = false;
         enemy.Free();
@@ -153,8 +154,16 @@ public class FightHandler : MonoBehaviour {
         ///
     }
 
+    private void DisplayButton(string button)
+    {
+        
+        Debug.Log("display button is " + button);
+        player.Runes.GetComponent<Animator>().SetTrigger(button);
+        ///
+    }
+
     private void DislayFailedGuess(){
-        player.Runes.GetComponent<Animator>().SetInteger("Outcome", -1);
+        player.Runes.GetComponent<Animator>().SetTrigger("Fail");
         //player.Runes.GetComponent<Animator>().SetInteger("Letter Index", 0);
 
         ///
@@ -170,17 +179,13 @@ public class FightHandler : MonoBehaviour {
     }
 
     private void DisplayFailedBattle(){
-        player.Runes.GetComponent<Animator>().SetInteger("Letter Index", 0);
-        player.Runes.GetComponent<Animator>().SetInteger("Outcome", -1);
+        player.Runes.GetComponent<Animator>().SetTrigger("Fail");
 
-
-        ///
     }
 
     private void DisplayWonBattle() {
-        player.Runes.GetComponent<Animator>().SetInteger("Letter Index", 0);
-        player.Runes.GetComponent<Animator>().SetInteger("Outcome", 0);
-        //player.Runes.GetComponent<Animator>().SetTrigger("Do");
+        player.Runes.GetComponent<Animator>().SetTrigger("Do");
+
 
     }
 }

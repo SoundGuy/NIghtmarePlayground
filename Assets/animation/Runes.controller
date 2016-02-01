@@ -8,19 +8,37 @@ AnimatorController:
   m_Name: Runes
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Letter Index
-    m_Type: 3
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: Outcome
-    m_Type: 3
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
   - m_Name: Do
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: Fail
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: letter
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: v
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: p
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: m
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -46,8 +64,8 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: Letter Index
+  - m_ConditionMode: 1
+    m_ConditionEvent: m
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110266006}
@@ -91,8 +109,8 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: Letter Index
+  - m_ConditionMode: 1
+    m_ConditionEvent: v
     m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110219224}
@@ -205,12 +223,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 7
-    m_ConditionEvent: Letter Index
+  - m_ConditionMode: 1
+    m_ConditionEvent: Fail
     m_EventTreshold: 2
-  - m_ConditionMode: 7
-    m_ConditionEvent: Outcome
-    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110222086}
   m_Solo: 0
@@ -232,11 +247,8 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 7
-    m_ConditionEvent: Letter Index
-    m_EventTreshold: 1
-  - m_ConditionMode: 7
-    m_ConditionEvent: Outcome
+  - m_ConditionMode: 1
+    m_ConditionEvent: Fail
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110222086}
@@ -283,8 +295,8 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: Letter Index
+  - m_ConditionMode: 1
+    m_ConditionEvent: p
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110288178}
@@ -307,11 +319,8 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 7
-    m_ConditionEvent: Letter Index
-    m_EventTreshold: 3
-  - m_ConditionMode: 7
-    m_ConditionEvent: Outcome
+  - m_ConditionMode: 1
+    m_ConditionEvent: Fail
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110222086}
@@ -519,7 +528,7 @@ AnimatorStateMachine:
     m_Position: {x: 612, y: -12, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110288664}
-    m_Position: {x: 444, y: 276, z: 0}
+    m_Position: {x: 396, y: 264, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110266006}
     m_Position: {x: 132, y: 24, z: 0}
@@ -528,14 +537,14 @@ AnimatorStateMachine:
     m_Position: {x: 528, y: 108, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110219224}
-    m_Position: {x: 216, y: 204, z: 0}
+    m_Position: {x: 144, y: 216, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
-  m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 800, y: 120, z: 0}
+  m_AnyStatePosition: {x: -48, y: -72, z: 0}
+  m_EntryPosition: {x: -108, y: 120, z: 0}
+  m_ExitPosition: {x: 612, y: 264, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 110222086}

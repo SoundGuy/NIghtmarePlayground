@@ -61,7 +61,9 @@ MonoBehaviour:
   enemySpeed: 5
   fights: []
   anim: {fileID: 9550174}
+  toughness: 5
   type: 3
+  isFighting: 0
 --- !u!212 &21257860
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -115,6 +117,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5e5f6452e04b5c04388d4daf1591c679, type: 2}
+    - target: {fileID: 0}
+      propertyPath: toughness
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 136864}
