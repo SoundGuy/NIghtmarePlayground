@@ -24,8 +24,5 @@ public class CthulliScript : MonoBehaviour {
 			this.transform.GetComponent<SpriteRenderer> ().enabled = true;
 			transform.position = Vector2.MoveTowards (transform.position, Player.transform.position, speed *Time.deltaTime);
 		}
-
 	}
-
-
 }
