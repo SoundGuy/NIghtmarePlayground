@@ -6,11 +6,13 @@ public class CthulliScript : MonoBehaviour {
 	public GameObject Player;
 	bool ChasePlayer;
 	public float speed;
+	
 	void Start ()
 	{
 		this.transform.GetComponent<SpriteRenderer> ().enabled = false;
 		ChasePlayer = false;
 	}
+
 	public void activateCthulli()
 	{
 		ChasePlayer = true;

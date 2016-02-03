@@ -134,6 +134,10 @@ public class PlayerScript : MonoBehaviour {
         View.range -= 1;
     }
 
+    public void Die(){
+        
+    }
+
     /*void Kathulu()
     {
         Instantiate(kathulu,new Vector2())
