@@ -100,4 +100,29 @@ public class EnemyScript : MonoBehaviour {
 
         return false;
     }
+
+	void OnTriggerStay2D(Collider2D other){
+		// If other is layer dependant
+		// If Im lower && other Layer greater - Accend layer order (SpriteRenderer>().sortingOrder +1)
+		if(other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy") 
+		{
+			if(GetMinYValue(other.gameObject) > GetMinYValue(this.gameObject) &&
+				other.gameObject.GetComponent<SpriteRenderer> ().sortingOrder >= gameObject.GetComponent<SpriteRenderer> ().sortingOrder) 
+			{
+				this.GetComponent<SpriteRenderer> ().sortingOrder += 1;
+			}
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D other){
+		// Set this layer to 0
+		Debug.Log("exit?");
+		this.GetComponent<SpriteRenderer> ().sortingOrder = 0;
+	}
+
+	private float GetMinYValue(GameObject o){
+		float minY = o.GetComponent<SpriteRenderer> ().sprite.bounds.min.y;
+		float yLocation = o.transform.position.y + minY;
+		return yLocation;
+	}
 }

@@ -14,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Monsters
   - 
   - 
   - 
@@ -41,4 +41,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 1
+    uniqueID: 1381059561
+    locked: 0
+  - name: 2
+    uniqueID: 25431835
+    locked: 0
+  - name: 3
+    uniqueID: 1194049879
+    locked: 0
+  - name: 4
+    uniqueID: 1067987931
+    locked: 0
+  - name: 5
+    uniqueID: 3189551279
     locked: 0

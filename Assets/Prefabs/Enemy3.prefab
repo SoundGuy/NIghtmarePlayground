@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21257860}
   - 114: {fileID: 11416462}
   - 95: {fileID: 9550174}
+  - 61: {fileID: 6159310}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Untagged
@@ -25,11 +26,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.8, y: -6.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!61 &6159310
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136864}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.09509325, y: 0.066563606}
+  serializedVersion: 2
+  m_Size: {x: 1.4590976, y: 1.0216703}
 --- !u!95 &9550174
 Animator:
   serializedVersion: 3
