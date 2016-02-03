@@ -4,6 +4,8 @@ using System.Collections;
 public class FightHandler : MonoBehaviour {
 	public PlayerScript player;
 	public EnemyScript enemy;
+    public FlameScript flame;
+
 	private int numberOfButtons = 3;
 	char[] Buttons = {'n', 'm', 'p', 'v' };
 
@@ -159,33 +161,24 @@ public class FightHandler : MonoBehaviour {
         
         Debug.Log("display button is " + button);
         player.Runes.GetComponent<Animator>().SetTrigger(button);
-        ///
     }
 
     private void DislayFailedGuess(){
         player.Runes.GetComponent<Animator>().SetTrigger("Fail");
-        //player.Runes.GetComponent<Animator>().SetInteger("Letter Index", 0);
-
-        ///
     }
 
     private void DisplaySucceededGuess (){
-        //player.Runes.GetComponent<Animator>().SetInteger("Outcome", 1);
         player.Runes.GetComponent<Animator>().SetTrigger("Do");
-
-
-
-        ///
+        flame.IncreaseFlame();
     }
 
     private void DisplayFailedBattle(){
         player.Runes.GetComponent<Animator>().SetTrigger("Fail");
-
+        flame.DistinguishFlame();
     }
 
     private void DisplayWonBattle() {
         player.Runes.GetComponent<Animator>().SetTrigger("Do");
-
-
+        flame.Succeed();
     }
 }
