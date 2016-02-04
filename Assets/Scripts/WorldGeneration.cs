@@ -15,7 +15,7 @@ public class WorldGeneration : MonoBehaviour {
     {
         distFromSpawn = 10;
         SpawnFoliage();
-        SpawnEnemies();
+        //SpawnEnemies();
        
 	}
     void SpawnFoliage()
