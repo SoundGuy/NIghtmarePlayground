@@ -5,11 +5,10 @@ public class CthulliScript : MonoBehaviour {
 	Vector2 targetPos;
 	float distToTarget;
 
-	public float VolumeSpeed;
 	public GameObject world;
-	public AudioScript audioscript;
+	public float VolumeSpeed;
 	public GameObject player;
-	bool ChasePlayer;
+	public bool ChasePlayer;
 	public float distanceFromPlayer;
 	public float speed;
 	static public Vector2 XLimit = new Vector2(-8, 8);
@@ -25,20 +24,22 @@ public class CthulliScript : MonoBehaviour {
 
 	void Update ()
 	{
+
+
 		if (ChasePlayer) 
 		{
 			this.transform.GetComponent<SpriteRenderer> ().enabled = true;
 			transform.position = Vector2.MoveTowards (transform.position, player.transform.position, speed *Time.deltaTime);
+			if (this.GetComponent<AudioSource> ().volume < 1) 
+			{
+				increaseaudio ();
+			}
+
 		}
-		/*
-		if (ChasePlayer == true) {
-			AudioSource audio = GetComponent<AudioSource>();
-
-				float VolumeIncrease = Time.deltaTime * VolumeSpeed;
 
 
-				audio.volume += VolumeIncrease;
-		}*/
+			
+
 	}
 
 	public void ActivateCthulli(GameObject newPlayer)
@@ -46,9 +47,19 @@ public class CthulliScript : MonoBehaviour {
 		StopAllCoroutines ();
 		player = newPlayer;
 		ChasePlayer = true;
-		//AudioSource audio = GetComponent<AudioSource>();
-		//audio.volume = 0;
-		//audio.Play();
+		AudioSource audio = GetComponent<AudioSource>();
+		audio.Play();
+		AudioScript vdc = world.GetComponent<AudioScript> ();
+		vdc.freakout = true;
+		Debug.Log ("aslkcmaslkcmaslkc");
+	}
+
+	void increaseaudio () 
+	{
+		AudioSource audio = GetComponent<AudioSource>();
+		Debug.Log ("cthulli is on");
+		float VolumeIncrease = Time.deltaTime * VolumeSpeed;
+		audio.volume += VolumeIncrease;
 	}
 
 	private void SetRandomLocation(){

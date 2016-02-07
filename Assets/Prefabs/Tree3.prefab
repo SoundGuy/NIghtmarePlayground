@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 495318}
   - 212: {fileID: 21205826}
   - 95: {fileID: 9528706}
+  - 114: {fileID: 11422432}
   m_Layer: 0
   m_Name: Tree3
   m_TagString: Enemy
@@ -46,6 +47,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11422432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa831dd46a213fa428aee274905f4729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21205826
 SpriteRenderer:
   m_ObjectHideFlags: 1

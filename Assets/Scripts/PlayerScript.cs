@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour {
     [SerializeField] public Transform kathulu;
     [SerializeField] public Transform Flame;
     EnemyScript currentEnemy;
+	public bool isFreaked;
 
     Animator anim;
     enum Keys { K,P,R,C};
@@ -88,20 +89,29 @@ public class PlayerScript : MonoBehaviour {
     }
     void LightControl()
     {
+		
         View.range -= Time.deltaTime*viewThreshold;
-        if(View.range<=3.5f)
+		if (RenderSettings.ambientIntensity >= 0) {
+			RenderSettings.ambientIntensity -= Time.deltaTime * viewThreshold * 0.05f;
+		}
+        if(View.range<=3.6f)
         {
-            View.range = 3.5f;
+            View.range = 3.6f;
             FreakOut();
         }
         else if (View.range >= 14){
             View.range = 14;
-        }
+        
+		}
     }
     
     private void FreakOut()
     {
-		cthuluScript.ActivateCthulli(this.gameObject);
+		CthulliScript ktonce = kathulu.GetComponent<CthulliScript> ();
+		if (ktonce.ChasePlayer == false)
+		{
+			cthuluScript.ActivateCthulli (this.gameObject);
+		}
     }
 
     public void StartBattle()
