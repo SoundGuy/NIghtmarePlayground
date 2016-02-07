@@ -5,6 +5,7 @@ public class EnemyScript : MonoBehaviour {
 
     Vector2 targetPos;
     float distToTarget;
+	[SerializeField] float walkDistance;
     [SerializeField] float enemySpeed;
     [SerializeField] Animation[] fights;
     public Animator anim;
@@ -29,14 +30,14 @@ public class EnemyScript : MonoBehaviour {
     IEnumerator Walk()
     {
         anim.SetBool("isWalking", true);
-        targetPos = SetRandomPos();
+		targetPos = SetRandomLocation();
        /* Vector2 direction = (targetPos - (Vector2)transform.position).normalized;
         transform.up = direction;*/
         distToTarget = Vector2.Distance(transform.position, targetPos);
        
         while (distToTarget >= 2)
         {
-            transform.position = Vector2.MoveTowards(transform.position, targetPos, enemySpeed*Time.deltaTime);
+			transform.position = Vector2.MoveTowards(transform.position, targetPos, enemySpeed*Time.deltaTime);
             if (transform.position.y < targetPos.y)
             {
                 anim.SetBool("Y", true);
@@ -75,8 +76,18 @@ public class EnemyScript : MonoBehaviour {
     Vector2 SetRandomPos()
     {
         Vector2 pos = new Vector3(Random.Range(XLimit.x, XLimit.y), Random.Range(YLimit.x, YLimit.y));
+		pos = pos / 5;
         return pos;
     }
+
+	private Vector3 SetRandomLocation(){
+		Vector3 distance = new Vector3 (walkDistance, walkDistance);
+		int rand = Random.Range (-180, 180);
+		distance = Quaternion.Euler(0, 0, rand) * distance;
+		distance.x += transform.position.x;
+		distance.y += transform.position.y;
+		return distance;
+	}
 
     public void Stop()
     {

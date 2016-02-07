@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject g;
     private FightHandler fightHandler;
     private CthulliScript cthuluScript;
+	private AudioScript audioscript;
     Light View;
 
     public float viewThreshold;
@@ -35,10 +36,7 @@ public class PlayerScript : MonoBehaviour {
         fightDelay = 1;
         fightHandler = g.GetComponent<FightHandler>();
         cthuluScript = kathulu.GetComponent<CthulliScript>();
-        
-
     }
-
 
     void Update ()
     {
@@ -103,7 +101,7 @@ public class PlayerScript : MonoBehaviour {
     
     private void FreakOut()
     {
-        cthuluScript.activateCthulli();
+		cthuluScript.ActivateCthulli(this.gameObject);
     }
 
     public void StartBattle()
@@ -137,6 +135,7 @@ public class PlayerScript : MonoBehaviour {
     public void Die(){
         
     }
+
 
     /*void Kathulu()
     {

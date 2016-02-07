@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd1e835863d428489e7dc54ffca31ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkDistance: 7
   enemySpeed: 2
   fights: []
   anim: {fileID: 0}
@@ -146,6 +147,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: toughness
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: walkDistance
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
