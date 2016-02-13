@@ -84,6 +84,7 @@ public class PlayerScript : MonoBehaviour {
             {
                 Debug.Log("TROOO");
                 fightHandler.InitiateBattle(currentEnemy, this);
+				fightHandler.DisplayInRitual ();
             }
         }
     }

@@ -51,13 +51,13 @@ public class CthulliScript : MonoBehaviour {
 		audio.Play();
 		AudioScript vdc = world.GetComponent<AudioScript> ();
 		vdc.freakout = true;
-		Debug.Log ("aslkcmaslkcmaslkc");
+		//Debug.Log ("aslkcmaslkcmaslkc");
 	}
 
 	void increaseaudio () 
 	{
 		AudioSource audio = GetComponent<AudioSource>();
-		Debug.Log ("cthulli is on");
+		//Debug.Log ("cthulli is on");
 		float VolumeIncrease = Time.deltaTime * VolumeSpeed;
 		audio.volume += VolumeIncrease;
 	}

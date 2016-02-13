@@ -67,6 +67,7 @@ public class FightHandler : MonoBehaviour {
             //enemy.isEngaged = true;
             tries = 3;
             //Player.engage
+			DisplayInRitual();
             StartTurn();
         }
 	}
@@ -112,6 +113,7 @@ public class FightHandler : MonoBehaviour {
         if (tries <= 0)
         {
             FailBattle();
+			this.player.GetComponent<Animator> ().SetBool ("in_ritual", false);
         }
         else {
             DislayFailedGuess();
@@ -124,6 +126,8 @@ public class FightHandler : MonoBehaviour {
         if (enemy.Hit() == true)
         {
             WinBattle();
+			this.player.GetComponent<Animator> ().SetBool ("in_ritual", false);
+
         }
         else {
             DisplaySucceededGuess();
@@ -181,4 +185,8 @@ public class FightHandler : MonoBehaviour {
         player.Runes.GetComponent<Animator>().SetTrigger("Do");
         flame.Succeed();
     }
+	public void DisplayInRitual() {
+		player.GetComponent<Animator> ().SetBool ("in_ritual", true);
+		Debug.Log ("in ritual");
+		}
 }

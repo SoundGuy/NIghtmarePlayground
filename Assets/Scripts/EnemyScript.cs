@@ -117,12 +117,12 @@ public class EnemyScript : MonoBehaviour {
 		// If Im lower && other Layer greater - Accend layer order (SpriteRenderer>().sortingOrder +1)
 		if(other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy") 
 		{
-			Debug.Log ("reached conditions");
+			//Debug.Log ("reached conditions");
 			if(GetMinYValue(other.gameObject) > GetMinYValue(this.gameObject) &&
 				other.gameObject.GetComponent<SpriteRenderer> ().sortingOrder >= gameObject.GetComponent<SpriteRenderer> ().sortingOrder) 
 			{
-				Debug.Log(GetMinYValue(other.gameObject));
-				Debug.Log (GetMinYValue (this.gameObject));
+				//Debug.Log(GetMinYValue(other.gameObject));
+				//Debug.Log (GetMinYValue (this.gameObject));
 				this.GetComponent<SpriteRenderer> ().sortingOrder += 1;
 			}
 		}
@@ -130,7 +130,7 @@ public class EnemyScript : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other){
 		// Set this layer to 0
-		Debug.Log("exit?");
+		//Debug.Log("exit?");
 		this.GetComponent<SpriteRenderer> ().sortingOrder = 0;
 	}
 
