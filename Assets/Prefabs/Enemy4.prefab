@@ -77,7 +77,7 @@ MonoBehaviour:
   enemySpeed: 2
   fights: []
   anim: {fileID: 0}
-  toughness: 0
+  toughness: 5
   type: 4
   isFighting: 0
 --- !u!212 &21287992

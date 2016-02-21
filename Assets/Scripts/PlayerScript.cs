@@ -93,9 +93,7 @@ public class PlayerScript : MonoBehaviour {
     {
 		
         View.range -= Time.deltaTime*viewThreshold;
-		if (RenderSettings.ambientIntensity >= 0) {
-			RenderSettings.ambientIntensity -= Time.deltaTime * viewThreshold * 0.05f;
-		}
+        SetAmbient();
         if(View.range<=3.6f)
         {
             View.range = 3.6f;
@@ -107,6 +105,14 @@ public class PlayerScript : MonoBehaviour {
 		}
     }
     
+    private void SetAmbient()
+    {
+        if (RenderSettings.ambientIntensity >= 0)
+        {
+            RenderSettings.ambientIntensity -= Time.deltaTime * viewThreshold * 0.3f;
+        }
+    }
+
     private void FreakOut()
     {
 		CthulliScript ktonce = kathulu.GetComponent<CthulliScript> ();
