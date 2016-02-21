@@ -11,35 +11,20 @@ public class AudioScript : MonoBehaviour {
 		AudioSource audio = GetComponent<AudioSource>();
 		audio.clip = audio1;
 		audio.Play ();
-
-
 	}
-
-
 
 	void FadeoutAudio () {
 		AudioSource audio = GetComponent<AudioSource>();
-
-
-			float VolumeDecrease = Time.deltaTime * VolumeSpeed;
-
-			audio.volume -= VolumeDecrease;
-
-	}
-
-	void freakStart () {
-	freakout = true;
+		float VolumeDecrease = Time.deltaTime * VolumeSpeed;
+		audio.volume -= VolumeDecrease;
 	}
 
 
 	
 	// Update is called once per frame
 	void Update () {
-
-		if ( freakout == true  && GetComponent<AudioSource>().volume != 0) 
-		{
-		FadeoutAudio ();
-			//Debug.Log ("im on");
+		if ( freakout == true  && GetComponent<AudioSource>().volume != 0) {
+		    FadeoutAudio ();
 		}
     }
 }

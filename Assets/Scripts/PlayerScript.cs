@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour {
     EnemyScript currentEnemy;
 	public bool isFreaked;
 
+
     Animator anim;
     enum Keys { K,P,R,C};
     [SerializeField]
@@ -26,7 +27,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject g;
     private FightHandler fightHandler;
     private CthulliScript cthuluScript;
-	private AudioScript audioscript;
+	//private AudioScript audioscript;
     Light View;
 
     public float viewThreshold;
@@ -144,10 +145,24 @@ public class PlayerScript : MonoBehaviour {
     }
 
     public void Die(){
-        
+        PlayDieSound();
+        GetComponent<SpriteRenderer>().enabled = false;
+        View.enabled = false;
+        Destroy(this);
+        ShowCredits();
     }
 
+    private void PlayDieSound()
+    {
 
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
+    }
+
+    private void ShowCredits()
+    {
+
+    }
     /*void Kathulu()
     {
         Instantiate(kathulu,new Vector2())

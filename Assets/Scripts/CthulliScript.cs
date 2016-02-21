@@ -13,10 +13,10 @@ public class CthulliScript : MonoBehaviour {
 	public float speed;
 	static public Vector2 XLimit = new Vector2(-8, 8);
 	static public Vector2 YLimit = new Vector2(-8, 8);
+    private bool didDie = false;
 	 
 	void Start ()
 	{
-		//this.transform.GetComponent<SpriteRenderer> ().enabled = false;
 		SetRandomLocation ();
 		ChasePlayer = false;
 		StartCoroutine(Walk());
@@ -24,8 +24,6 @@ public class CthulliScript : MonoBehaviour {
 
 	void Update ()
 	{
-
-
 		if (ChasePlayer) 
 		{
 			this.transform.GetComponent<SpriteRenderer> ().enabled = true;
@@ -34,12 +32,7 @@ public class CthulliScript : MonoBehaviour {
 			{
 				increaseaudio ();
 			}
-
 		}
-
-
-			
-
 	}
 
 	public void ActivateCthulli(GameObject newPlayer)
@@ -49,12 +42,23 @@ public class CthulliScript : MonoBehaviour {
 		ChasePlayer = true;
 		AudioSource audio = GetComponent<AudioSource>();
 		audio.Play();
-		AudioScript vdc = world.GetComponent<AudioScript> ();
-		vdc.freakout = true;
-		//Debug.Log ("aslkcmaslkcmaslkc");
-	}
+        AudioScript worldAudio = world.GetComponent<AudioScript>();
+        worldAudio.freakout = true;
+    }
 
-	void increaseaudio () 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Player" && didDie == false)
+        {
+            AudioScript worldAudio = world.GetComponent<AudioScript>();
+            worldAudio.freakout = true;
+            worldAudio.VolumeSpeed *= 2;
+            didDie = true;
+            player.GetComponent<PlayerScript>().Die();
+        }
+    }
+
+    void increaseaudio () 
 	{
 		AudioSource audio = GetComponent<AudioSource>();
 		//Debug.Log ("cthulli is on");
@@ -112,6 +116,4 @@ public class CthulliScript : MonoBehaviour {
 		Vector2 pos = new Vector3(Random.Range(XLimit.x, XLimit.y), Random.Range(YLimit.x, YLimit.y));
 		return pos;
 	}
-
-
 }

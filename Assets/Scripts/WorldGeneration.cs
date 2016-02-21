@@ -20,8 +20,7 @@ public class WorldGeneration : MonoBehaviour {
 	}
     void SpawnFoliage()
     {
-        randomNumF = Random.Range(12, 28);
-        Debug.Log(randomNumF);
+        randomNumF = Random.Range(10, 10);
         for (int i = 0; i < numOfF; i++)
         {
             for (int j = 0; j < randomNumF; j++)
@@ -33,14 +32,12 @@ public class WorldGeneration : MonoBehaviour {
     void SpawnEnemies()
     {
         randomNumE = Random.Range(4, 12);
-        Debug.Log(randomNumE);
         for (int i = 0; i <numOfE; i++)
         {
             for (int j = 0; j < randomNumE; j++)
             {
                 distFromSpawn*=i;
                 Vector2 spawnPoint = new Vector2(Random.Range(EnemyScript.XLimit.x - distFromSpawn, EnemyScript.XLimit.y + distFromSpawn), Random.Range(EnemyScript.YLimit.x - distFromSpawn, EnemyScript.YLimit.y + distFromSpawn));
-                Debug.Log(spawnPoint);
                 Instantiate(Enemies[i], spawnPoint, Quaternion.identity);
             }
         }
